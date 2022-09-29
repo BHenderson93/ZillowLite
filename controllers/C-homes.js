@@ -2,7 +2,7 @@ const db = require('../config/database')
 
 const allHomes = async (req, res) => {
     console.log("All homes controller hit.")
-    const allHomesSQL = 'SELECT * FROM homes;'
+    const allHomesSQL = 'SELECT * FROM homes ORDER BY id ASC;'
     const params = []
     db.all(allHomesSQL, params, (err, rows) => {
         if(err){
