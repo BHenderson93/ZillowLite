@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+main{
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+h1{
+  text-align: center;
+}
