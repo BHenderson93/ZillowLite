@@ -29,7 +29,16 @@ const deleteHome = async (req,res) => {
 }
 
 const likeHome = async (req,res) => {
+    console.log("Like home hit with", req.body)
+    const likeHomeSQL = `UPDATE homes SET likes=likes+1 WHERE id=${req.body.id}`
+    const params = []
+    db.run(likeHomeSQL, params, (err, result)=>{
+        if(err) res.status(400)
+        console.log(result)
+        res.set("Access-Control-Allow-Origin", "*")
+        res.json(result)
 
+    })
 }
 
 module.exports = {

@@ -6,3 +6,7 @@ export async function getAllHomes(){
     console.log('Sending request to getAllHomes')
     return await sendRequest(`${BASE_URL}/all`, 'POST')
 }
+
+export async function likeHome(id){
+    return await sendRequest(`${BASE_URL}/like`, 'POST', {id})
+}
