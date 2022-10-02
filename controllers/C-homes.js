@@ -2,7 +2,7 @@ const db = require('../config/database')
 
 const allHomes = async (req, res) => {
     console.log("All homes controller hit.")
-    const allHomesSQL = 'SELECT * FROM homes ORDER BY id ASC;'
+    const allHomesSQL = 'SELECT * FROM homes ORDER BY id DESC;'
     const params = []
     db.all(allHomesSQL, params, (err, rows) => {
         if(err){
@@ -11,7 +11,6 @@ const allHomes = async (req, res) => {
             console.log("sending rows", rows)
             res.json(rows)
         }
-
     })
 }
 
@@ -20,9 +19,7 @@ const addHome = async (req,res) => {
     const SQLFields = [req.body.title, req.body.description, req.body.image_url, req.body.price]
     try{
         db.run(`INSERT INTO homes (title, description, image_url, price) VALUES(?,?,?,?)`, SQLFields)
-        res.json({
-            "message":"Home added."
-        })
+        res.json(req.body)
     }
     catch(err){
         console.log(err)

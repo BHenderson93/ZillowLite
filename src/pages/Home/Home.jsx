@@ -35,6 +35,7 @@ export default function HomePage({setActiveHome}){
         e.preventDefault()
         const formSubmit = await addNewHome(homeData)
         console.log(formSubmit)
+        setHomes([formSubmit, ...homes])
     }
 
     const handleChange = (e) => {
