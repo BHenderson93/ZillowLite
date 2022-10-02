@@ -47,15 +47,23 @@ const deleteHome = async (req,res) => {
 
 const likeHome = async (req,res) => {
     console.log("Like home hit with", req.body)
-    const likeHomeSQL = `UPDATE homes SET likes=likes${req.body.dir} WHERE id=${req.body.id}`
-    const params = []
-    db.run(likeHomeSQL, params, (err, result)=>{
-        if(err) res.status(400)
-        res.json({
-            "message":"Counter incremented.",
-            "increment":`${req.body.dir}`
+    // Data validations to ensure directoin is either +1 or -1 and the provided id is only an integer.
+    if((req.body.dir === '+1' || req.body.dir === '-1') && parseInt(req.body.id) ){
+        const likeHomeSQL = `UPDATE homes SET likes=likes${req.body.dir} WHERE id=${req.body.id}`
+        const params = []
+        db.run(likeHomeSQL, params, (err, result)=>{
+            if(err) res.status(400)
+            res.json({
+                "message":"Counter incremented.",
+                "increment":`${req.body.dir}`
+            })
         })
-    })
+    }else{
+        res.json({
+            message:"Invalid like input."
+        })
+    }
+
 }
 
 module.exports = {
