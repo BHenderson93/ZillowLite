@@ -1,8 +1,19 @@
+import { useEffect } from 'react'
 import { react, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 
 export default function DetailPage({ home, handleLike, liked }) {
+
+    const navigate = useNavigate();
+    useEffect(()=>{
+        if(!home.title){
+            
+            navigate('/')
+        }
+    },[])
+    
     return (
         <main className="detail">
             <div className="container">

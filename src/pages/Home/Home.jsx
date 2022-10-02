@@ -24,6 +24,13 @@ export default function HomePage({handleHomeClick}){
         const formSubmit = await addNewHome(homeData)
         console.log(formSubmit)
         setHomes([formSubmit, ...homes])
+        setHomeData({
+            title:"",
+            description:"",
+            image_url:"",
+            price:"",
+        })
+        setAddHomeForm(false)
     }
 
     const handleChange = (e) => {
@@ -36,19 +43,19 @@ export default function HomePage({handleHomeClick}){
 
     return(
         <main>
-            <h1>Homeviewer</h1>
+            <h1 className="title">ZillowLite - Buy/Sell Homes!</h1>
             <button onClick={()=>{setAddHomeForm(!addHomeForm)}}>{addHomeForm? "Close form":"Add A New Listing"}</button>
             {addHomeForm?
                 <form onSubmit={handleSubmit}>
                     <h1>Add a new home listing!</h1>
                     <label htmlFor="title">Title of Listing</label>
-                    <input type="text" value={homeData.title} onChange={handleChange} maxlength="25" name="title" id="" />
+                    <input type="text" value={homeData.title} onChange={handleChange} maxlength="25" name="title" id="" required />
                     <label htmlFor="description">Description</label>
-                    <textarea name="description" value={homeData.description} onChange={handleChange} maxlength="500" id="" cols="30" rows="10"></textarea>
+                    <textarea name="description" value={homeData.description} onChange={handleChange} maxlength="500" required id="" cols="30" rows="10"></textarea>
                     <label htmlFor="image_url">Image URL</label>
-                    <input type="text" value={homeData.image_url} onChange={handleChange} name="image_url" id="" />
+                    <input type="text" value={homeData.image_url} onChange={handleChange} name="image_url" required id="" />
                     <label htmlFor="price">Price</label>
-                    <input type="number" value={homeData.price} onChange={handleChange} max="1000000000" step="0.01" name="price" id="" />
+                    <input type="number" value={homeData.price} onChange={handleChange} max="1000000000" required step="0.01" name="price" id="" />
                     <button type="submit">Submit!</button>
                 </form>
                 :
