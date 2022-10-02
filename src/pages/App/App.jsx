@@ -11,9 +11,9 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path="/detail" element={<DetailPage />} />
+      <Route path="/detail" element={<DetailPage home={activeHome}/>} />
       <Route path="/edit" element={<EditPage />}/>
-      <Route path="/*" element={<HomePage/>}/>
+      <Route path="/*" element={<HomePage setActiveHome={setActiveHome}/>}/>
     </Routes>
   );
 }

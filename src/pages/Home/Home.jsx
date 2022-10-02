@@ -2,9 +2,9 @@ import { useState, useEffect} from 'react'
 import { getAllHomes, addNewHome } from '../../utilities/homes-api'
 import HomeCard from '../../components/HomeCard/HomeCard'
 import { likeHome } from '../../utilities/homes-api'
-import e from 'cors'
+import { Link } from 'react-router-dom'
 
-export default function HomePage(){
+export default function HomePage({setActiveHome}){
     const [homes, setHomes] = useState([])
     const [addHomeForm, setAddHomeForm] = useState(false)
     const [homeData, setHomeData] = useState({
@@ -68,7 +68,7 @@ export default function HomePage(){
             <ol>
                 {homes.length > 0? 
                     homes.map(
-                        home=><HomeCard home={home} incrementLikeCounter={incrementLikeCounter}/>
+                        home=><Link to="/detail" onClick={()=>{setActiveHome(home)}}><HomeCard home={home} incrementLikeCounter={incrementLikeCounter}/></Link>
                     )
                     :
                     null
