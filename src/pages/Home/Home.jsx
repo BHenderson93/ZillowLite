@@ -1,7 +1,6 @@
 import { useState, useEffect} from 'react'
 import { getAllHomes, addNewHome } from '../../utilities/homes-api'
 import HomeCard from '../../components/HomeCard/HomeCard'
-import { likeHome } from '../../utilities/homes-api'
 import { Link } from 'react-router-dom'
 
 export default function HomePage({setActiveHome}){
@@ -14,17 +13,6 @@ export default function HomePage({setActiveHome}){
         price:"",
     })
 
-    const incrementLikeCounter = async (id) => {
-        const res = await likeHome(id)
-        console.log(res)
-        if(res.increment === '1'){
-            const newHomes = [...homes]
-            for(let home of newHomes){
-                home.id === id && home.likes++
-            }
-            setHomes(newHomes)
-        }
-    }
     useEffect(()=>{
         (async () => {
           setHomes(await getAllHomes())
@@ -69,7 +57,7 @@ export default function HomePage({setActiveHome}){
             <ol>
                 {homes.length > 0? 
                     homes.map(
-                        home=><Link to="/detail" onClick={()=>{setActiveHome(home)}}><HomeCard home={home} incrementLikeCounter={incrementLikeCounter}/></Link>
+                        home=><Link to="/detail" onClick={()=>{setActiveHome(home)}}><HomeCard home={home} /></Link>
                     )
                     :
                     null

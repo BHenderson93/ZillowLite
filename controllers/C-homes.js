@@ -18,7 +18,7 @@ const addHome = async (req,res) => {
     console.log('Add home controller hit.', req.body)
     const SQLFields = [req.body.title, req.body.description, req.body.image_url, req.body.price]
     try{
-        db.run(`INSERT INTO homes (title, description, image_url, price) VALUES(?,?,?,?)`, SQLFields)
+        db.run(`INSERT INTO homes (title, description, image_url, price, likes) VALUES(?,?,?,?, 0)`, SQLFields)
         res.json(req.body)
     }
     catch(err){
@@ -40,13 +40,13 @@ const deleteHome = async (req,res) => {
 
 const likeHome = async (req,res) => {
     console.log("Like home hit with", req.body)
-    const likeHomeSQL = `UPDATE homes SET likes=likes+1 WHERE id=${req.body.id}`
+    const likeHomeSQL = `UPDATE homes SET likes=likes${req.body.dir} WHERE id=${req.body.id}`
     const params = []
     db.run(likeHomeSQL, params, (err, result)=>{
         if(err) res.status(400)
         res.json({
             "message":"Counter incremented.",
-            "increment":"1"
+            "increment":`${req.body.dir}`
         })
     })
 }
