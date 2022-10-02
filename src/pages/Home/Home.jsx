@@ -3,7 +3,7 @@ import { getAllHomes, addNewHome } from '../../utilities/homes-api'
 import HomeCard from '../../components/HomeCard/HomeCard'
 import { Link } from 'react-router-dom'
 
-export default function HomePage({setActiveHome}){
+export default function HomePage({handleHomeClick}){
     const [homes, setHomes] = useState([])
     const [addHomeForm, setAddHomeForm] = useState(false)
     const [homeData, setHomeData] = useState({
@@ -57,7 +57,7 @@ export default function HomePage({setActiveHome}){
             <ol>
                 {homes.length > 0? 
                     homes.map(
-                        home=><Link to="/detail" onClick={()=>{setActiveHome(home)}}><HomeCard home={home} /></Link>
+                        home=><Link to="/detail" className="link" onClick={()=>{handleHomeClick(home)}}><HomeCard home={home} /></Link>
                     )
                     :
                     null

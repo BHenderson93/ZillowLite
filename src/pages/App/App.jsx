@@ -20,11 +20,18 @@ export default function App() {
     }
   }
 
+  const handleHomeClick = (home) => {
+    if(home.id !== activeHome.id){
+      setActiveHome(home)
+      setLiked(false)
+    }
+  }
+
   return (
     <Routes>
       <Route path="/detail" element={<DetailPage home={activeHome} handleLike={handleLike} liked={liked}/>} />
       <Route path="/edit" element={<EditPage />}/>
-      <Route path="/*" element={<HomePage setActiveHome={setActiveHome}/>}/>
+      <Route path="/*" element={<HomePage handleHomeClick={handleHomeClick}/>}/>
     </Routes>
   );
 }

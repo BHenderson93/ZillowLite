@@ -1,12 +1,55 @@
 .App {
   text-align: center;
+  
 }
 
 main{
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
+  margin:0;
+  padding: 5vh 0;
+  background-color: azure;
+  font:rgb(0,67,115);
+  min-height:100vh;
+  font-family: 'Walsheim',Helvetica,Arial,Lucida,sans-serif;
 }
 
 h1{
   text-align: center;
+}
+.link{
+  display:flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width:55vw;
+  text-decoration: none;
+  color:inherit;
+}
+
+.home-card{
+  margin:3vh 0;
+  width: 55vw;
+  padding:2vh;
+  display:flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  border: 2px solid black;
+  border-radius:1vw;
+  background-color: white;
+  box-shadow: 2vw 2vh #004373;
+}
+
+img{
+  height: 40vh;
+  width: 40vh;
+  object-fit:cover;
+}
+
+.container{
+  width: 75vw;
+  padding:2vh;
+  display:flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }

@@ -18,8 +18,15 @@ const addHome = async (req,res) => {
     console.log('Add home controller hit.', req.body)
     const SQLFields = [req.body.title, req.body.description, req.body.image_url, req.body.price]
     try{
-        db.run(`INSERT INTO homes (title, description, image_url, price, likes) VALUES(?,?,?,?, 0)`, SQLFields)
-        res.json(req.body)
+        db.run(`INSERT INTO homes (title, description, image_url, price, likes) VALUES(?,?,?,?, 0);`, SQLFields, function(err){
+            if(err){
+                console.log(err)
+            }else{
+                const response = {...req.body, likes:0, id:this.lastID}
+                console.log('sending response', response)
+                res.json(response)
+            }
+        })
     }
     catch(err){
         console.log(err)
