@@ -30,17 +30,17 @@ After receiving the return value from the controller, increment the front end di
 
 # Notes
 While not the most beautiful app, it should cover all the necessary technical aspects of this challenge.
-    DB: 
-        SQLite
-        Includes title, description, product image, price, and likes
-        Populated with 12 examples
-    Backend API: 
-        Supports CRUD
-        Supports GET requests - single page view data pulled from inital GET request for faster page load times
-        Includes POST routes for adding and deleting likes with data validations.
-    Frontend client:
-        React
-        Scrollable main page with all available products - displaying title, image, likes, and price
-        Single-page view with additional details - includes display of description as well as like button to like/unlike a particular home.
-        Back button to return to main page
+* DB: 
+    1. SQLite
+    2. Includes title, description, product image, price, and likes
+    3. Populated with 12 examples
+* Backend API: 
+    1. Supports CRUD
+    2. Supports GET requests - single page view data pulled from inital GET request for faster page load times
+    3. Includes POST routes for adding and deleting likes with data validations.
+* Frontend client:
+    1. React
+    2. Scrollable main page with all available products - displaying title, image, likes, and price
+    3. Single-page view with additional details - includes display of description as well as like button to like/unlike a particular home.
+    4. Back button to return to main page
 
