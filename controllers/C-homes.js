@@ -9,7 +9,6 @@ const allHomes = async (req, res) => {
             res.status(400).json({"error":err.message})
         }else{
             console.log("sending rows", rows)
-            res.set("Access-Control-Allow-Origin", "*")
             res.json(rows)
         }
 
@@ -17,7 +16,21 @@ const allHomes = async (req, res) => {
 }
 
 const addHome = async (req,res) => {
-
+    console.log('Add home controller hit.', req.body)
+    const SQLFields = [req.body.title, req.body.description, req.body.image_url, req.body.price]
+    try{
+        db.run(`INSERT INTO homes (title, description, image_url, price) VALUES(?,?,?,?)`, SQLFields)
+        res.json({
+            "message":"Home added."
+        })
+    }
+    catch(err){
+        console.log(err)
+        res.json({
+            "message":"Unsuccessful create"
+        })
+    }
+    
 }
 
 const editHome = async (req,res) => {
@@ -34,10 +47,10 @@ const likeHome = async (req,res) => {
     const params = []
     db.run(likeHomeSQL, params, (err, result)=>{
         if(err) res.status(400)
-        console.log(result)
-        res.set("Access-Control-Allow-Origin", "*")
-        res.json(result)
-
+        res.json({
+            "message":"Counter incremented.",
+            "increment":"1"
+        })
     })
 }
 

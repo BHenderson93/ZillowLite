@@ -10,3 +10,8 @@ export async function getAllHomes(){
 export async function likeHome(id){
     return await sendRequest(`${BASE_URL}/like`, 'POST', {id})
 }
+
+export async function addNewHome(details){
+    console.log(details)
+    return await sendRequest(`${BASE_URL}/add`, 'POST', details)
+}
