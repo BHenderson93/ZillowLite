@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default function DetailPage({ home, handleLike, liked }) {
     return (
-        <main>
+        <main className="detail">
             <div className="container">
                 <Link to="/" ><button>Back to main</button></Link>
                 <h1>{home.title}</h1>

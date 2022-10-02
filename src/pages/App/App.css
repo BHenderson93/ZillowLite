@@ -44,6 +44,7 @@ img{
   height: 40vh;
   width: 40vh;
   object-fit:cover;
+  border-radius: 5vw;
 }
 
 .container{
@@ -52,4 +53,9 @@ img{
   display:flex;
   flex-flow: column nowrap;
   align-items: center;
+}
+
+.detail{
+  max-height:100vh;
+  padding:0;
 }

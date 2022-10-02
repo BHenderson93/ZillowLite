@@ -37,7 +37,7 @@ export default function HomePage({handleHomeClick}){
     return(
         <main>
             <h1>Homeviewer</h1>
-            <button onClick={()=>{setAddHomeForm(!addHomeForm)}}>Add new item</button>
+            <button onClick={()=>{setAddHomeForm(!addHomeForm)}}>{addHomeForm? "Close form":"Add new item"}</button>
             {addHomeForm?
                 <form onSubmit={handleSubmit}>
                     <h1>Form</h1>
