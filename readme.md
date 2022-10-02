@@ -9,7 +9,7 @@ Access the app at http://localhost:3001/ or the port that you have the app runni
 Database will automatically seed and persist data.
 
 # Buildout direction
-With more time, I would incorporate Tailwind CSS for a better frontend appearance, as well as instantiating Users and likes as a SQL table. Currently, likes are displayed by tally and that system can be gamed. Instead of this setup, I would have a table containing a list of likes, which includes columns for User_ID and Home_ID. To find the like count, `SELECT Count(User_ID) FROM likes WHERE Home_ID=${req.body.Home_ID};` within the controller. Whenever a like button is clicked, an if else statement can be used - such as
+With more time, I would incorporate Tailwind CSS for a better frontend appearance, as well as instantiating Users and likes as SQL tables. Currently, likes are displayed by tally and that system can be gamed. Instead of this setup, I would have a table containing a list of likes, which includes columns for User_ID and Home_ID. To find the like count, `SELECT Count(User_ID) FROM likes WHERE Home_ID=${req.body.Home_ID};` within the controller. Whenever a like button is clicked, an if else statement can be used - such as
 
         const liked = db.run(`SELECT Count(User_ID) FROM likes WHERE Home_ID=${req.body.Home_ID};`)
         if(liked > 0){
