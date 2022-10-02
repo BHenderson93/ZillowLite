@@ -21,7 +21,8 @@ let db = new sqlite3.Database('db.sqlite', (err)=>{
         throw err
     }
     console.log("Connected to db.")
-/*     db.run(
+/*  # Uncomment and refresh server to drop db table. Then recomment and refresh to start fresh.   
+    db.run(
         'DROP TABLE homes;'
     ) */
     db.run(

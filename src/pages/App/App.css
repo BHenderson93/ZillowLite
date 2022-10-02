@@ -15,6 +15,35 @@ main{
   font-family: 'Walsheim',Helvetica,Arial,Lucida,sans-serif;
 }
 
+form{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 55vw;
+}
+
+button{
+  width: 55vw;
+  height: 5vh;
+  background-color: rgb(247,155,119);
+  box-shadow: 0px 12px 18px -6px #ffb996;
+  border-radius: 10vw;
+  border:none;
+  font-size: 3vh;
+}
+
+button:hover{
+  transition: 0.5s;
+  box-shadow: 0px 24px 36px -12px #ffb996;
+  background-color: rgb(58, 89, 242);
+}
+
+input, textarea{
+  width: 100%;
+  padding: 1vh;
+  margin: .5vh;
+}
+
 h1{
   text-align: center;
 }
@@ -38,6 +67,11 @@ h1{
   border-radius:1vw;
   background-color: white;
   box-shadow: 2vw 2vh #004373;
+}
+
+.home-card:hover{
+  transition: .5s;
+  background-color: #ffb996;
 }
 
 img{

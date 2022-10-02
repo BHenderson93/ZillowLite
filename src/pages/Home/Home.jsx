@@ -37,10 +37,10 @@ export default function HomePage({handleHomeClick}){
     return(
         <main>
             <h1>Homeviewer</h1>
-            <button onClick={()=>{setAddHomeForm(!addHomeForm)}}>{addHomeForm? "Close form":"Add new item"}</button>
+            <button onClick={()=>{setAddHomeForm(!addHomeForm)}}>{addHomeForm? "Close form":"Add A New Listing"}</button>
             {addHomeForm?
                 <form onSubmit={handleSubmit}>
-                    <h1>Form</h1>
+                    <h1>Add a new home listing!</h1>
                     <label htmlFor="title">Title of Listing</label>
                     <input type="text" value={homeData.title} onChange={handleChange} maxlength="25" name="title" id="" />
                     <label htmlFor="description">Description</label>
